@@ -1,6 +1,11 @@
 package basics;
 
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /*
@@ -24,7 +29,7 @@ web page as a String value
 Note: webdriver maintains unique id for every window opened by
 the driver instance.
 
-6. getWindowHandles(): retuns a set of String type which contains ids of the
+6. getWindowHandles(): returns a set of String type which contains ids of the
 browser windows opened by the driver instance
 
 7. findElement(By arg): returns a WebElement reference this method will
@@ -68,6 +73,25 @@ public class WebDriverCommands {
 		// getPageSource() -> returns a String, which is complete html code of current web pages
 		String pageSource = driver.getPageSource();
 		System.out.println(pageSource.contains("Facebook helps you connect and share with the people in your life."));
+		
+		// getWindowHandle() -> returns a String, which is a unique of the current window or tab
+		String windowId = driver.getWindowHandle();
+		System.out.println("window id = "+windowId);
+		
+		// getWindowHandles() -> returns a Set<String>, which contains all the ids of the browser windows or tabs opened by driver instance
+		Set<String> windowIDs = driver.getWindowHandles();
+		System.out.println("windows ids = "+windowIDs);
+		
+		
+		// findElement(By arg) -> returns WebElement object 
+//		By emailLoc = By.id("email");
+//		WebElement emailEle = driver.findElement(emailLoc);
+		WebElement emailEle = driver.findElement(By.id("email"));
+
+		
+		// findElements(By arg) -> returns List<WebElement>
+		List<WebElement> inputTags = driver.findElements(By.tagName("input"));
+		System.out.println("number of input tags = "+inputTags.size());
 		
 		
 		// close() - is used to close the current browser window or tab
