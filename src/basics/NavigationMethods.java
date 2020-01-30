@@ -24,7 +24,7 @@ the url format at compile time but 2nd method will verify url format
 at compile time
 3. back() is used to automate back button of the browser window
 4. forward() is used to automate forward button of the browser window
-5. refresh() is used to automate refersh button of the browser window 
+5. refresh() is used to automate refresh button of the browser window 
  */
 public class NavigationMethods {
 	public static void main(String[] args) throws InterruptedException {
