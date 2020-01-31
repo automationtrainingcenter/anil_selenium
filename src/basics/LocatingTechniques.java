@@ -1,7 +1,15 @@
 package basics;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 /*By class methods or Locating Techniques of selenium
 
-Note 1: To locate any elmenet in the webpage right click on that 
+Note 1: To locate any elemenet in the webpage right click on that 
 element and click inspect, then that element will be highlighted
 in the html source code
 Note 2: Every html element is implemented using a tag and every 
@@ -72,5 +80,57 @@ className() argument
 name of the tag.
 */
 public class LocatingTechniques {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver", ".//drivers//geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://www.facebook.com");
+		driver.manage().window().maximize();
+		
+		
+		// locate email or phone element using id attribute or id method
+		By emailLoc = By.id("email");
+		WebElement emailEle = driver.findElement(emailLoc);
+//		WebElement emailEle = driver.findElement(By.id("email"));
+		
+		// locate first name element using name attribute or name method
+		By firstNameLoc = By.name("firstname");
+		WebElement firstNameEle = driver.findElement(firstNameLoc);
+		
+		// locate forgotten account? link using linkText method
+		By forAccLoc = By.linkText("Forgotten account?");
+		WebElement forAccEle = driver.findElement(forAccLoc);
+		
+		
+		// locate create a page link using partialLinkText method
+		By createAPageLoc = By.partialLinkText("Create");
+		WebElement createAPageEle = driver.findElement(createAPageLoc);
+		
+		
+		// locate female radio button using cssSelector method
+		By femaleRadioBtnLoc = By.cssSelector("input[value='1']");
+		WebElement femaleRadioBtnEle = driver.findElement(femaleRadioBtnLoc);
+		
+		
+		// locate male radio button using xpath method
+		By maleRadioBtnLoc = By.xpath("//input[@value='2']");
+		WebElement maleRadioBtnEle = driver.findElement(maleRadioBtnLoc);
+		
+		// locate elements whose class name is inputtext using classname method
+		By inputTextLoc = By.className("inputtext");
+		List<WebElement> inputTextEles = driver.findElements(inputTextLoc);
+		System.out.println("number of elements with inputtext as class name are "+inputTextEles.size());
+		
+		
+		// locate elements whose tag name is a using tagName method
+		By linksLoc = By.tagName("anchor");
+		List<WebElement> linkEles = driver.findElements(linksLoc);
+		System.out.println("number of links in page are "+linkEles.size());
+		
+		driver.close();
+		
+		
+		
+		
+	}
 
 }
