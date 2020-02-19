@@ -13,7 +13,7 @@ import utilities.BrowserHelper;
 
 //3. iterate over each row and find the columns using td tag
 
-//4. iterate over each column or cell and get the table cell
+//4. iterate over each column or cell and get the table cell data
 public class WebTableDemo extends BrowserHelper {
 
 	public static void main(String[] args) {
